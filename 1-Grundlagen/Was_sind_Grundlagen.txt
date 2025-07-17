@@ -1,0 +1,2 @@
+Zum Kapitel "Grundlagen" zählen die Teilgebiete "Grundlegende Programmelemente", die "grundlegenden 
+Kontrollstrukturen" sowie "Arrays" und einfache "Funktionen".
