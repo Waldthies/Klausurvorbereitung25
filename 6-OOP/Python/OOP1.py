@@ -130,11 +130,14 @@ class Hand:
     def calculate_value(self):
         result_value = 0
         for card in self.cards:
-            result_value += self.values[card.value]
-        if result_value > 21:
-            result_value -= self.ace_count*10
-        if result_value > 21:
-            return None
+            result_value += self.values[card.value]        
+        if result_value > 21 and self.ace_count > 0:
+            ace_buffer = self.ace_count
+            while result_value > 21 and ace_buffer > 0:
+                result_value -= 10
+                ace_buffer -= 1
+        #if result_value > 21:
+        #    return None
         return result_value
                 
             
@@ -148,7 +151,7 @@ class Game:
         self.dealer_hand = Hand(self.deck.draw_card()) 
         print("The Casinos card is: " + str(self.dealer_hand.cards[0]))
         print()
-        while self.player_hand.calculate_value():
+        while self.player_hand.calculate_value() <= 21:
             print("Your current hand is:")
             for card in self.player_hand.cards:
                 print(card)
@@ -170,18 +173,20 @@ class Game:
                 print()
                 print("You have a value of", player_value)
                 print("The Casino has a value of", dealer_value)
-                if  dealer_value >= player_value:
+                if  dealer_value >= player_value and dealer_value <= 21:
                     print("Therfore you lose. :(")
                     return
                 else:
-                    print("Therfore you win.")
+                    if dealer_value > 21:
+                        print("The dealer busted! :D")
+                    print("Therefore you win.")
                     print("Congratulations! :)")
                     return 
         print("You busted, therfore you lose. :(")
         
 
-
+#hand = Hand(Card("ace", "hearts"))
+#hand.add(Card("ace", "spades"))
+#hand.add(Card("ace", "clubs"))
+#print(hand.calculate_value())
 game = Game()
-    
-
-        
