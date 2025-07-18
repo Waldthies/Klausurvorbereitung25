@@ -1,4 +1,4 @@
-
+import os
 
 # Koordinaten und Formen
 
@@ -162,6 +162,7 @@ class Game:
         print() 
     
     def play_round(self):
+        os.system('cls||clear')
         self.set_table()                    
         while self.player_hand.calculate_value() <= 21:            
             print("Your current hand is:")
@@ -174,6 +175,7 @@ class Game:
                 return
             user_input = input("Do you want to hit? (y/n)")   
             if user_input == "y":
+                os.system('cls||clear')
                 current_card = self.deck.draw_card()
                 self.player_hand.add(current_card)
                 print("You drew:", current_card)
@@ -195,8 +197,11 @@ class Game:
         print()
         print("You have a value of", player_value)
         print("The Casino has a value of", dealer_value)
-        if  dealer_value >= player_value and dealer_value <= 21:
+        if  dealer_value > player_value and dealer_value < 21:
             print("Therefore you lose. :(")
+            return
+        elif  dealer_value == player_value:
+            print("Push! Bets are returned")
             return
         else:
             if dealer_value > 21:
