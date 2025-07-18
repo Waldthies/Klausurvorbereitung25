@@ -65,6 +65,7 @@ class Rectangle:
 # Black Jack
 
 # Schreiben Sie eine Klasse "card", die die Felder "value" und "suit" besitzt.
+# Objekte der Klasse sollen außerdem in Strings umwandelbar sein. 
 
 class Card:
     def __init__(self, value, suit):
@@ -73,12 +74,24 @@ class Card:
     def __str__(self):
         return str((self.suit, self.value))
     
+
+# Schreiben Sie eine Klasse "Deck", die aus allen 52 möglichen Karten aus den Kombinationen aus den values
+# "["two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"]"
+# und den suits "["diamonds", "hearts", "spades", "clubs"]" besteht.
+# Verwenden Sie eine List Comprehension.
+    
     
 class Deck:
     def __init__(self):
         values = ["two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"]
         suits = ["diamonds", "hearts", "spades", "clubs"]
         self.cards = [Card(value, suit) for value in values for suit in suits]
+        
+        
+# Schreiben Sie eine "__str__" für Ihr Deck, welches jede Karte des Decks ausgibt.
+# Die Formatierung soll am Ende so aussehen "[("two", "heart"), ("ace", "spades")]"
+
+
     def __str__(self):
         result = "["
         for card in self.cards:
@@ -87,9 +100,16 @@ class Deck:
         result += "]"
         return result
     
+
+# Schreiben Sie eine Methode "shuffle", die mit Hilfe der "random"-Library und dessen "shuffle"-Methode
+# die Karten des Decks durchmischt.
+    
     def shuffle(self):
         import random
         random.shuffle(self.cards)
+        
+        
+# ...
 
     def draw_card(self):
         return self.cards.pop()
