@@ -136,8 +136,6 @@ class Hand:
             while result_value > 21 and ace_buffer > 0:
                 result_value -= 10
                 ace_buffer -= 1
-        #if result_value > 21:
-        #    return None
         return result_value
                 
             
