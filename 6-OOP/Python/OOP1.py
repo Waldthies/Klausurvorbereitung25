@@ -141,14 +141,24 @@ class Hand:
             
 
 class Game:
-    def __init__(self):
+    def __init__(self):        
+        self.play_round()
+        user_input = input("Would you like to play again? (y/n)")
+        while(user_input == "y"):
+            self.play_round()
+            user_input = input("Would you like to play again? (y/n)")
+
+    def set_table(self):
         self.deck = Deck()
         self.deck.shuffle()
         self.player_hand = Hand(self.deck.draw_card())
         self.player_hand.add(self.deck.draw_card())
         self.dealer_hand = Hand(self.deck.draw_card()) 
         print("The Casinos card is: " + str(self.dealer_hand.cards[0]))
-        print()
+        print() 
+    
+    def play_round(self):
+        self.set_table()
         while self.player_hand.calculate_value() <= 21:
             print("Your current hand is:")
             for card in self.player_hand.cards:
