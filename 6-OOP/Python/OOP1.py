@@ -126,7 +126,10 @@ class Hand:
         if card.value == "ace":
             self.ace_count += 1
         self.cards.append(card)
-    
+        
+    def has_blackjack(self):
+        return self.calculate_value == 21 and len(self.cards == 2)
+
     def calculate_value(self):
         result_value = 0
         for card in self.cards:
@@ -144,7 +147,7 @@ class Game:
     def __init__(self):        
         self.play_round()
         user_input = input("Would you like to play again? (y/n)")
-        while(user_input == "y"):
+        while(user_input == "y"):   # Replay until user wishes not to
             self.play_round()
             user_input = input("Would you like to play again? (y/n)")
 
@@ -159,7 +162,7 @@ class Game:
         print() 
     
     def play_round(self):
-        self.set_table()
+        self.set_table()                    
         while self.player_hand.calculate_value() <= 21:            
             print("Your current hand is:")
             for card in self.player_hand.cards:
@@ -167,7 +170,7 @@ class Game:
             print("With a total value of:", self.player_hand.calculate_value())
             if self.player_hand.calculate_value() == 21:
                 print("You hit blackjack! Staying.")
-                self.dealer_plays()
+                self.dealer_plays()     # Finish the round by letting the dealer play
                 return
             user_input = input("Do you want to hit? (y/n)")   
             if user_input == "y":
