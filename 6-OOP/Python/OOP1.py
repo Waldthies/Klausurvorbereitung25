@@ -72,7 +72,7 @@ class Card:
         self.value = value
         self.suit = suit 
     def __str__(self):
-        return str((self.suit, self.value))
+        return str(self.value) + " of " + str(self.suit)
     
 
 # Schreiben Sie eine Klasse "Deck", die aus allen 52 möglichen Karten aus den Kombinationen aus den values
@@ -150,47 +150,57 @@ class Game:
 
     def set_table(self):
         self.deck = Deck()
-        self.deck.shuffle()
-        self.player_hand = Hand(self.deck.draw_card())
-        self.player_hand.add(self.deck.draw_card())
-        self.dealer_hand = Hand(self.deck.draw_card()) 
-        print("The Casinos card is: " + str(self.dealer_hand.cards[0]))
+        self.deck.shuffle()        
+        self.player_hand = Hand(self.deck.draw_card())  # deal to player
+        self.dealer_hand = Hand(self.deck.draw_card())  # dealer draws 
+        self.player_hand.add(self.deck.draw_card())     # deal second to player
+        self.dealer_hand.add(self.deck.draw_card())  # dealer draws again
+        print("The Casinos revealed card is: " + str(self.dealer_hand.cards[0])) # reveal only one of the two cards
         print() 
     
     def play_round(self):
         self.set_table()
-        while self.player_hand.calculate_value() <= 21:
+        while self.player_hand.calculate_value() <= 21:            
             print("Your current hand is:")
             for card in self.player_hand.cards:
                 print(card)
             print("With a total value of:", self.player_hand.calculate_value())
+            if self.player_hand.calculate_value() == 21:
+                print("You hit blackjack! Staying.")
+                self.dealer_plays()
+                return
             user_input = input("Do you want to hit? (y/n)")   
             if user_input == "y":
                 current_card = self.deck.draw_card()
                 self.player_hand.add(current_card)
                 print("You drew:", current_card)
             elif user_input == "n":
-                print()
-                while self.dealer_hand.calculate_value() < 17 and self.dealer_hand.calculate_value() < self.player_hand.calculate_value():
-                    current_card = self.deck.draw_card()
-                    self.dealer_hand.add(current_card)
-                    print("Dealer drew:", current_card)
-                
-                dealer_value = self.dealer_hand.calculate_value()
-                player_value = self.player_hand.calculate_value()
-                print()
-                print("You have a value of", player_value)
-                print("The Casino has a value of", dealer_value)
-                if  dealer_value >= player_value and dealer_value <= 21:
-                    print("Therfore you lose. :(")
-                    return
-                else:
-                    if dealer_value > 21:
-                        print("The dealer busted! :D")
-                    print("Therefore you win.")
-                    print("Congratulations! :)")
-                    return 
+                self.dealer_plays()
+                return
         print("You busted, therfore you lose. :(")
+
+    def dealer_plays(self):
+        print()
+        print("Dealer reveals: " + str(self.dealer_hand.cards[1]))
+        while self.dealer_hand.calculate_value() < 17 and self.dealer_hand.calculate_value() < self.player_hand.calculate_value():
+            current_card = self.deck.draw_card()
+            self.dealer_hand.add(current_card)
+            print("Dealer drew:", current_card)
+        
+        dealer_value = self.dealer_hand.calculate_value()
+        player_value = self.player_hand.calculate_value()
+        print()
+        print("You have a value of", player_value)
+        print("The Casino has a value of", dealer_value)
+        if  dealer_value >= player_value and dealer_value <= 21:
+            print("Therfore you lose. :(")
+            return
+        else:
+            if dealer_value > 21:
+                print("The dealer busted! :D")
+            print("Therefore you win.")
+            print("Congratulations! :)")
+            return 
         
 
 #hand = Hand(Card("ace", "hearts"))
