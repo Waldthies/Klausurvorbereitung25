@@ -49,11 +49,13 @@ class Rectangle:
 
     def has_right_angle(self):
         import itertools
-        max_distance = 0
-        max_distance_points = None
+        distances = []
         for combination in itertools.combinations([self.first_point, self.second_point, self.third_point],2):
-            combination_distance = combination[0].distance_to(combination[1])
-            if  combination_distance > max_distance:
-                max_distance = combination_distance
-                max_distance_points = combination
+            distances.append(combination[0].distance_to(combination[1]))
+        if distances[0] > distances[1]:
+            if distances[0] > distances[2]:
+                return (distances[0]**2 == distances[1]**2 + distances[2]**2)
+        
+       
+          
 

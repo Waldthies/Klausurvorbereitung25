@@ -1,0 +1,5 @@
+Küche   3   5
+Flur    2   6
+Wohnzimmer  9   6
+Bad 3   2
+Schlafzimmer    3   4
