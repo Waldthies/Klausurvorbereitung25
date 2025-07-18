@@ -177,7 +177,7 @@ class Game:
             elif user_input == "n":
                 self.dealer_plays()
                 return
-        print("You busted, therfore you lose. :(")
+        print("You busted, therefore you lose. :(")
 
     def dealer_plays(self):
         print()
@@ -193,7 +193,7 @@ class Game:
         print("You have a value of", player_value)
         print("The Casino has a value of", dealer_value)
         if  dealer_value >= player_value and dealer_value <= 21:
-            print("Therfore you lose. :(")
+            print("Therefore you lose. :(")
             return
         else:
             if dealer_value > 21:
