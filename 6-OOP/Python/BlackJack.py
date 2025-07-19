@@ -65,7 +65,7 @@ class Hand:
         self.cards.append(card)
         
     def has_blackjack(self):
-        return self.calculate_value == 21 and len(self.cards == 2)
+        return self.calculate_value() == 21 and len(self.cards)== 2
 
     def calculate_value(self):
         result_value = 0
@@ -77,6 +77,8 @@ class Hand:
                 result_value -= 10
                 ace_buffer -= 1
         return result_value
+    def __str__(self):
+        return str(self.cards)
 
 
 class Player:
@@ -120,7 +122,12 @@ class Game:
     def play_round(self):
         os.system('cls||clear') #clears console
         self.player.raise_stake()
-        self.set_table()                    
+        self.set_table()  
+        if self.player.hand.has_blackjack():
+            print("You hit BLACKJACK. Lucky you!")
+            self.player.money_total = 2.5*self.player.stake
+            self.player.stake = 0
+            return                
         while self.player.hand.calculate_value() <= 21:            
             print("Your current hand is:")
             for card in self.player.hand.cards:
@@ -155,7 +162,7 @@ class Game:
         print()
         print("You have a value of", player_value)
         print("The Casino has a value of", dealer_value)
-        if  dealer_value > player_value and dealer_value < 21:
+        if  dealer_value > player_value and dealer_value <= 21:
             print("Therefore you lose. :(")
             self.player.stake = 0
             return
