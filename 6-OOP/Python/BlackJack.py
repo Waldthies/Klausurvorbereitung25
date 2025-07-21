@@ -64,6 +64,12 @@ class Hand:
             self.ace_count += 1
         self.cards.append(card)
         
+    
+    def print_hand(self):    
+        print("Your current hand is:")
+        for card in self.cards:
+            print(card)
+        
     def has_blackjack(self):
         return self.calculate_value() == 21 and len(self.cards)== 2
 
@@ -133,18 +139,22 @@ class Game:
             self.player.money_total = 2.5*self.player.stake
             self.player.stake = 0
             return 
-        if self.player.money_total >= (self.player.stake):
-            wants_to_double_down = input("Do you want to double down on your bet?(y/n) ")
-            if wants_to_double_down == "y":
+        player_could_double_down = self.player.money_total >= (self.player.stake)
+        if player_could_double_down:
+            self.player.hand.print_hand()
+            
+            print("You have a value of", self.player.hand.calculate_value())
+            wants_to_double_down = input("Do you want to double down on your bet?(y/n) ") == "y"
+            if wants_to_double_down:
                 self.player.double_stake()
                 self.player.hand.add(self.deck.draw_card())
                 self.dealer_plays()
                 return
-        while self.player.hand.calculate_value() <= 21:            
-            print("Your current hand is:")
-            for card in self.player.hand.cards:
-                print(card)
-            print("With a total value of:", self.player.hand.calculate_value())
+        while self.player.hand.calculate_value() <= 21:
+            if not(player_could_double_down and not wants_to_double_down):
+                self.player.hand.print_hand()
+                print("With a total value of:", self.player.hand.calculate_value())
+            player_could_double_down = False             
             if self.player.hand.calculate_value() == 21:
                 print("You hit 21! Staying.")
                 self.dealer_plays()     # Finish the round by letting the dealer play
