@@ -95,6 +95,11 @@ class Player:
             stake = int(input("Please enter your stake for the current round: "))
         self.stake = stake 
         self.money_total -= stake
+        
+    def double_stake(self):
+        self.money_total -= self.stake
+        self.stake += self.stake 
+        print("Doubled stake to", self.stake)
             
 
 class Game:
@@ -127,7 +132,14 @@ class Game:
             print("You hit BLACKJACK. Lucky you!")
             self.player.money_total = 2.5*self.player.stake
             self.player.stake = 0
-            return                
+            return 
+        if self.player.money_total >= (self.player.stake):
+            wants_to_double_down = input("Do you want to double down on your bet?(y/n) ")
+            if wants_to_double_down == "y":
+                self.player.double_stake()
+                self.player.hand.add(self.deck.draw_card())
+                self.dealer_plays()
+                return
         while self.player.hand.calculate_value() <= 21:            
             print("Your current hand is:")
             for card in self.player.hand.cards:
