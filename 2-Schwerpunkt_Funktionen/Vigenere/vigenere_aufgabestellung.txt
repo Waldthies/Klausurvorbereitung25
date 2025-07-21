@@ -1,0 +1,38 @@
+Die Vigenère-Verschlüsselung ist ein klassisches Verschlüsselungsverfahren, das bereits im 16. Jahrhundert entwickelt wurde. Dabei wird jeder Buchstabe des Klartexts mit einem Buchstaben eines Schlüssels kombiniert.
+
+Die Verschlüsselung basiert auf dem Prinzip der Caesar-Verschiebung, bei dem Buchstaben um eine bestimmte Anzahl im Alphabet verschoben werden.
+Bei der Vigenère-Verschlüsselung ändert sich diese Verschiebung jedoch mit jedem Buchstaben, da der Schlüssel wiederholt wird.
+
+Beispiel:
+
+mit Key = CANDACE
+
+EICHHOERNCHEN SIND IN DER HOSE DRIN
+CANDACECANDA CECA ND ACE CAND ACEC
+
+Verschlüsselung: Jeder Buchstabe wird um die Position des Schlüsselbuchstabens im Alphabet verschoben.
+
+In dieser Übung sollen sie die Vigenère-Verschlüsselung SChritt für SChritt implementieren:
+a) Schreiben Sie eine Funktion clean_text(text), der den Text wie folgt bereinigt:
+    - Alle Buchstaben in Großbuchstaben umwandeln
+    - Umlaute ersetzen: "Ä" → "AE", "Ö" → "OE", "Ü" → "UE", "ß" → "SS"
+    - Aus den Text "Eichhörchen sind in der Hose drin"
+      soll "EICHHOERNCHEN SIND IN DER HOSE DRIN" werden
+
+b) Schreiben Sie eine Funktion repeat_key(key, text), welches den Schlüssel so oft wiederholt, sodass dieser genauso lan ist wie der zu verschlüsselnde Text (einschließlich Leerzeichen)
+
+c) Schreibe eine Funktion, die einen Buchstaben A–Z in eine Zahl 0–25 umwandelt.
+    A → 0
+    Z → 25
+
+d) Schreibe eine Umkehrfunktion zu char_to_num, die eine Zahl 0–25 wieder in einen Großbuchstaben A–Z umwandelt.
+
+e) Schreibe eine Funktion vingerne_encrypt(plaintext, key) und vingerne_decrypt(ciphertext, key), um den Text zu verschlüsseln und entschlüsseln.
+
+Hierbei können Sie ausgehen, dass keine Sonderzeichen verwendet werden.
+
+Nutzen Sie zur überprüfung das gegebene Beispiel
+text = "Eichhörnchen sind in der Hose drin"
+key = "Candace"
+
+Verschlüsselung: GIPKHQITNPKEP WKNQ LN FIT HBVE FVKN
