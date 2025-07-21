@@ -134,11 +134,23 @@ class Game:
         os.system('cls||clear') #clears console
         self.player.raise_stake()
         self.set_table()  
-        if self.player.hand.has_blackjack():
+        if self.player.hand.has_blackjack() and not self.dealer_hand.has_blackjack():
             print("You hit BLACKJACK. Lucky you!")
             self.player.money_total = 2.5*self.player.stake
             self.player.stake = 0
             return 
+        if self.dealer_hand.cards[0].value == "ace" and self.player.money_total > self.player.stake/2:
+            buys_insurance = input("Dou you want to buy an insurance against BLACKJACK?(y/n) ") == "y"
+            if buys_insurance:
+                self.player.money_total -= self.player.stake/2
+        if self.dealer_hand.has_blackjack():
+            if buys_insurance:
+                print("The dealer hit BLACKJACK. Thanks to your ensurance you didn't lose any money tho.")
+                self.player.money_total += self.player.stake
+            else:
+                print("The dealer hit BLACKJACK. You are doomed...")
+            self.player.stake = 0
+            return
         player_could_double_down = self.player.money_total >= (self.player.stake)
         if player_could_double_down:
             self.player.hand.print_hand()
