@@ -96,7 +96,7 @@ class Player:
     def raise_stake(self):
         print("Your current wealth is: ", self.money_total)
         stake = int(input("Please enter your stake for the round: "))
-        while stake > self.money_total:
+        while stake > self.money_total and stake > 0:
             print("You don't have enough money to bet this high.")
             stake = int(input("Please enter your stake for the current round: "))
         self.stake = stake 
