@@ -1,0 +1,15 @@
+Wir zeichnen einen Tannenbaum!
+
+Ihr Programm soll als Eingabe einen positive Integer bekommen, welches die Höhe vom Nadelwerk ist.
+Der Tannenbaumstamm ist nur halb so groß wie das Nadelwerk.
+
+Zeichne mit "*" diesen Tannanbaum einmal mit einer for-Schleife und einmal rekursiv, wobei die Anzahl an "*" in jeder Zeile immer ungerade ist.
+
+Bsp n = 4
+
+       *        
+      ***       
+     *****      
+    *******     
+       *        
+       *  
