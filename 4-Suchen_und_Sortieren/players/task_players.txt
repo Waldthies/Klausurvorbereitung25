@@ -1,0 +1,17 @@
+Stellen Sie sich vor, Sie haben eine Liste an Spielern eines Fußball-Teams.
+Jeder Teilnehmer hat eine Bewertung erhalten, die die Qualität der Leistung über die Saison widerspiegelt. 
+Es gibt mehrere Dinge, Sie du optimieren müssen:
+
+Sortierung der Spieler:
+    Die Teilnehmer sollen nach ihrer Bewertung absteigend sortiert werden, um die bestbewertesten Spieler zuerst zu sehen.
+
+Top 5 Spieler:
+    Es sollen die Top-5 Spieler aus dem Team ausgegeben werden
+
+Unterschiede in Bewertungen:
+    Sie möchten die Differenz zwischen der besten und der schlechtesten Spieler herausfinden, um zu sehen, wie groß der Bewertungsbereich ist.
+
+Suche nach einem bestimmten Teilnehmer:
+    Ein Teilnehmer möchte wissen, wie er im Vergleich zu den anderen abgeschnitten hat.
+    Sie müssen eine Suchfunktion implementieren, mit der der Benutzer nach einem Teilnehmer anhand seines Namens suchen kann und die Bewertung dieses Teilnehmers zurückgegeben wird.
+    Falls der Teilnehmer nicht existiert, soll eine entsprechende Nachricht angezeigt werden.
