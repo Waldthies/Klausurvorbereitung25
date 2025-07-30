@@ -4,16 +4,16 @@ def is_valid_isbn(isbn):
     if len(isbn) != 10:
         return False
     
-    total = 0
+    sum = 0
     for i in range(10):
         if isbn[i] == "X" and i == 9:
-            total += (10 * (10 - i))
+            sum += (10 * (10 - i))
         elif isbn[i].isdigit():
-            total += int(isbn[i]) * (10 - i)
+            sum += int(isbn[i]) * (10 - i)
         else:
             return False
     
-    return total % 11 == 0
+    return sum % 11 == 0
 
 
 def validate_isbn_file(filename):
