@@ -159,8 +159,14 @@ class Game:
             wants_to_double_down = input("Do you want to double down on your bet?(y/n) ") == "y"
             if wants_to_double_down:
                 self.player.double_stake()
-                self.player.hand.add(self.deck.draw_card())
-                self.dealer_plays()
+                current_card = self.deck.draw_card()
+                self.player.hand.add(current_card)
+                print("You drew:", current_card)
+                if self.player.hand.calculate_value() <= 21:
+                    self.dealer_plays()
+                else:
+                    print("You busted, therefore you lose. :(")
+                    self.player.stake = 0   
                 return
         while self.player.hand.calculate_value() <= 21:
             if not(player_could_double_down and not wants_to_double_down):
