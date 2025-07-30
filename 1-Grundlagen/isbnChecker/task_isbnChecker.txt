@@ -1,0 +1,22 @@
+Fast jedes Buch hat eine ISBN (International Standard Book Number). Dies ist ein Code mit 10 Ziffern. Die erste Gruppe von Ziffern
+entspricht der Ländergruppe, die folgende steht für den Verlag. Die letzte Ziffer ist eine Prüfziffer. Eine Zeichenkette x1, . . . , x10 ist
+eine gültige ISBN genau dann, wenn die Summe der Produkte von i und x_i, wobei i von 1 bis 10 geht, kongruent zu 0 modulo 11 ist.
+
+i=1∑10​ i⋅xi ​≡ 0 mod 11
+
+Bsp.: 3-742-30167-5
+1*3 + 2*7 + 3*4 + 4*2 + 5*3 + 6*0 + 7*1 + 8*6 + 9*7 10*5 = 220 ​≡ 0 mod 11
+
+a) Überprüfe, ob die gegebenen ISBNs gültig sind.
+Die zu testenden ISBNs finden Sie in der File "isbn.txt"
+
+Hierbei soll dann die ISBN sortiert werden:
+
+Gültige ISBNs:
+x-xxx-xxxxx-x
+
+Ungültige ISBNs:
+x-xxxx-xxxx-x
+
+b) Gegeben sei die ISBN 3-827-41x24-0
+Schreiben sie eine Funktion, welches eine Zahl für "x" findet, sodass es eine gültige ISBN ergibt.
