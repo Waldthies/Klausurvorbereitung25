@@ -1,0 +1,62 @@
+a) Erstelle eine Liste der Zahlen von 1 bis 10 und verwende eine List Comprehension, um eine neue Liste zu erstellen, in der jede Zahl quadriert ist.
+
+Beispiel:
+Eingabe: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Ausgabe: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+b) Gegeben ist eine Liste von Zahlen. Verwende eine List Comprehension, um nur die geraden Zahlen herauszufiltern und in einer neuen Liste zu speichern.
+
+Beispiel:
+Eingabe: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Ausgabe: [2, 4, 6, 8, 10]
+
+c) Gegeben ist eine Liste von Wörtern. Verwende eine List Comprehension, um jedes Wort umzudrehen (z.B. "Haus" wird zu "suaH").
+
+Beispiel:
+Eingabe: ["Haus", "Baum", "Auto"]
+Ausgabe: ["suaH", "muaB", "otuA"]
+
+d) Erstelle eine List Comprehension, die nur die Zahlen aus einer Liste auswählt, die sowohl durch 3 als auch durch 5 teilbar sind.
+
+Beispiel:
+Eingabe: [1, 3, 5, 10, 15, 30, 60]
+Ausgabe: [15, 30, 60]
+
+e) Gegeben sei folgender Code:
+
+original_2 = []
+for i in range(1003):
+    if len(str(i)) % 2 == 0:
+        original_2 += [i]
+
+Beschreibe, was dieser Code macht.
+Schreibe eine List Comprehension "alternative", die die selbe Liste erzeugt.
+Überprüfe die Lösung, indem Sie beide Listen miteinander vergleichen.
+
+f) Gegeben sei folgender Code:
+
+original_1 = []
+i = 3
+while i < 20:
+    for j in range(1, 15):
+        if i % j == 0:
+            original_1 += [(i,j)]
+    i += 2
+
+Schreibe eine List Comprehension "alternative_1", die die selbe Liste erzeugt.
+Überprüfe die Lösung, indem Sie beide Listen miteinander vergleichen.
+
+g) Erstelle eine Liste aller Zahlen zwischen 1 und 100, die durch ihre eigene Quersumme teilbar sind.
+Eine Hilfsfunktion ist zu empfehlen.
+
+h) Schreibe ein Python-Programm, das den Benutzer auffordert, 5 Wörter einzugeben.
+Erstelle eine Liste von Tupeln, wobei jedes Tupel die folgenden Informationen für jedes Wort enthält:
+
+    Das Wort selbst
+    Die Länge des Wortes
+    Die Anzahl der Vokale im Wort (a, e, i, o, u)
+
+Hierbei können Sie davon ausgehen, dass nur Kleinbuchstaben und keine Umlaute verwendet werden.
+Eine Aufgabe könnte wie folgt aussehen:
+[('seegurke', 8, 4), ('duisburg', 8, 3), ('kevin', 5, 2), ('wambo', 5, 2), ('tiefimwesten', 12, 5)]
+
