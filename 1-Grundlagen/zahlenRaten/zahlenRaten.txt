@@ -1,0 +1,11 @@
+Schreibe ein kleines Pythonprogramm, bei dem der Benutzer eine Zahl erraten muss.
+Das Programm soll eine zufällige Zahl zwischen 1 und 100 wählen, und der Benutzer soll so lange raten, bis er die richtige Zahl gefunden hat.
+
+Das Programm soll eine zufällige Zahl zwischen 1 und 100 wählen.
+
+Der Benutzer gibt nacheinander Zahlen ein und das Programm gibt Hinweise:
+    „Zu hoch“ wenn die eingegebene Zahl zu groß ist.
+    „Zu niedrig“ wenn die eingegebene Zahl zu klein ist.
+    „Richtig!“ wenn die Zahl korrekt geraten wurde.
+
+Das Programm soll die Anzahl der Versuche zählen und diese anzeigen, wenn der Benutzer die Zahl richtig erraten hat.

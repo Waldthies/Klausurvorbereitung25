@@ -1,0 +1,10 @@
+Schreibe ein kleines Konsolenspiel, bei dem der Computer zwei Zufallszahlen "givenNumber" und "secretNumber" zwischen 1 und 99 (inklusive) auswählt. Der Benutzer soll raten, ob die geheime Zahl im Vergleich zur gegebenen Zahl höher, niedriger oder gleich ist.
+
+Beispielausgabe:
+*givenNumber = 42, secretNumber = 87
+I just chose a secret number between 1 and 100.
+Is the secret number higher, lower, or equal to 42?
+*user gibt higher, lower oder equal ein - indem Fall higher
+Correct! 87 is higher than 42.
+
+Verwende import random und die Funktion random.randint(x, y), um eine zufällige ganze Zahl zwischen x und y (einschließlich beider Grenzen) zu erzeugen. 

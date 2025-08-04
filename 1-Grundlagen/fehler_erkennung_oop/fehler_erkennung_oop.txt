@@ -1,0 +1,40 @@
+Finde die Fehler:
+
+class Bankkonto:
+    def __init__(self, inhaber, kontostand):
+        self.name = inhaber
+        self.kontostand = kontostand
+
+    def einzahlen(self, betrag):
+        if betrag < 0:
+            print("Betrag muss positiv sein.")
+        else:
+            self.kontostand += betrag
+            print(f"{betrag} wurde eingezahlt. Neuer Kontostand: {self.kontostand}")
+
+    def abheben(self, betrag):
+        if betrag < 0: 
+            print("Betrag muss positiv sein.")
+        elif betrag > self.kontostand:
+            print("Nicht genug Guthaben.")
+        else:
+            self.kontostand -= betrag
+            print(f"{betrag} wurde abgehoben. Neuer Kontostand: {self.kontostand}")
+
+    def zeige_kontostand(self):
+        print(f"Kontostand von {self.name}: {self.kontostand}")
+
+# Beispiel für die Verwendung der Klasse
+konto1 = Bankkonto("Max Mustermann", "1000")
+konto1.einzahlen("500")
+konto1.abheben(200)
+konto1.zeige_kontostand()
+
+konto2 = Bankkonto("Daniel Danger", -200) 
+konto2.abheben("100") 
+konto2.einzahlen(300)
+konto2.zeige_kontostand()
+
+konto3 = Bankkonto("Tricky Tristan") 
+konto3.abheben("100") 
+konto3.zeige_kontostand()

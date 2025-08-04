@@ -1,0 +1,38 @@
+class Bankkonto:
+    def __init__(self, inhaber, kontostand):
+        self.name = inhaber  # Falsches Attribut: sollte "inhaber" sein
+        self.kontostand = kontostand
+
+    def einzahlen(self, betrag):
+        if betrag < 0:  # Sollte überprüfen, ob betrag eine Zahl ist
+            print("Betrag muss positiv sein.")
+        else:
+            self.kontostand += betrag
+            print(f"{betrag} wurde eingezahlt. Neuer Kontostand: {self.kontostand}")
+
+    def abheben(self, betrag):
+        if betrag < 0:  # Sollte sicherstellen, dass betrag eine Zahl ist
+            print("Betrag muss positiv sein.")
+        elif betrag > self.kontostand:
+            print("Nicht genug Guthaben.")
+        else:
+            self.kontostand -= betrag
+            print(f"{betrag} wurde abgehoben. Neuer Kontostand: {self.kontostand}")
+
+    def zeige_kontostand(self):
+        print(f"Kontostand von {self.name}: {self.kontostand}")  # "name" ist nicht korrekt, es sollte "inhaber" sein
+
+# Beispiel für die Verwendung der Klasse
+konto1 = Bankkonto("Max Mustermann", "1000")  # Falscher Datentyp: kontostand sollte eine Zahl sein
+konto1.einzahlen("500")  # Falscher Datentyp: betrag sollte eine Zahl sein
+konto1.abheben(200)
+konto1.zeige_kontostand()
+
+konto2 = Bankkonto("Daniel Danger", -200)  # Falscher Startwert: kontostand darf nicht negativ sein
+konto2.abheben("100")  # Falscher Datentyp: betrag sollte eine Zahl sein
+konto2.einzahlen(300)
+konto2.zeige_kontostand()
+
+konto3 = Bankkonto("Tricky Tristan") # Fehlendes Attribut
+konto3.abheben("100") 
+konto3.zeige_kontostand()
