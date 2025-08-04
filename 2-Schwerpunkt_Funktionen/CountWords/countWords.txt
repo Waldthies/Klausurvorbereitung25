@@ -1,0 +1,10 @@
+Schreibe ein Python-Programm, das die Häufigkeit von Wörtern in einem gegebenen Text zählt und die Häufigkeit jedes Wortes in einem Dictionary speichert.
+Teilaufgaben:
+
+    Wörter zählen: Erstelle eine Funktion count_words(text), die einen Text als Eingabe nimmt, die Wörter zählt und die Häufigkeit jedes Wortes in einem Dictionary speichert. Das Dictionary soll die Wörter als Schlüssel und die Häufigkeit als Wert enthalten.
+
+    Am häufigsten vorkommendes Wort: Erstelle eine Funktion most_frequent_word(word_count), die das Wort mit der höchsten Häufigkeit aus dem Dictionary word_count zurückgibt.
+
+    Alphabetische Ausgabe: Erstelle eine Funktion alphabetical_words(word_count), die die Wörter im Text in alphabetischer Reihenfolge ausgibt.
+
+    Erstellt auch gerne eigene kreative Funktionen.
